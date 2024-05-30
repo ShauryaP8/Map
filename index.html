@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Tracker App Mockup</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Map Tracker</h1>
+    </header>
+    <div id="app">
+        <!-- Pages -->
+        <div id="maps" class="page">
+            <div class="button-group">
+                <button>Start</button>
+                <button>Stop</button>
+                <button>Pin</button>
+                <button>Overview</button>
+                <button>Settings</button>
+            </div>
+            <div id="map" class="map-container"></div>
+        </div>
+
+        <div id="explore" class="page hidden">
+            <div class="container">
+                <input type="text" placeholder="Search..." class="search-bar" />
+                <ul class="card-list">
+                    <li class="card" onclick="showDetailedMap('Paris')">Public Map 1</li>
+                    <li class="card" onclick="showDetailedMap('London')">Public Map 2</li>
+                    <li class="card" onclick="showDetailedMap('New York')">Public Map 3</li>
+                </ul>
+                <div id="detailed-map-view" class="hidden">
+                    <h2 id="destination-name"></h2>
+                    <div class="button-group">
+                        <button>Search</button>
+                        <button>Overview</button>
+                    </div>
+                    <div id="detailed-map" class="map-container"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="home" class="page hidden">
+            <div id="global-map" class="map-container"></div>
+            <div class="button-group">
+                <button>Filter 1</button>
+                <button>Filter 2</button>
+                <button>Filter 3</button>
+                <button>Filter 4</button>
+            </div>
+        </div>
+
+        <div id="following" class="page hidden">
+            <div class="container">
+                <ul class="card-list">
+                    <li class="card">Person 1</li>
+                    <li class="card">Person 2</li>
+                    <li class="card">Person 3</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="settings" class="page hidden">
+            <div class="container">
+                <div class="button-group">
+                    <button>Chat</button>
+                    <button>Friends</button>
+                    <button>Shared Maps</button>
+                    <button>Profile Settings</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="bottom-nav">
+            <button onclick="showPage('maps')"><i class="fas fa-map-marked-alt"></i></button>
+            <button onclick="showPage('explore')"><i class="fas fa-search"></i></button>
+            <button onclick="showPage('home')"><i class="fas fa-home"></i></button>
+            <button onclick="showPage('following')"><i class="fas fa-user-friends"></i></button>
+            <button onclick="showPage('settings')"><i class="fas fa-cog"></i></button>
+        </nav>
+    </div>
+    <footer>
+        <p>&copy; 2024 Map Tracker. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
